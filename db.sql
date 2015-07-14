@@ -39,7 +39,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'20111576','wangxin','123','www.975764577@qq.com',1),(2,'20111577','liujinhou','ljh8888','www.975764578@qq.com',1);
+INSERT INTO `user` VALUES (1,'20111576','wangxin','$2a$10$akLBCUWij7mhmshCi8Uvy.9kT70syH0btRoZnaliZV7bH6jJ1jSaO','www.975764577@qq.com',1),(2,'20111577','liujinhou','$2a$10$u3gOCzCst966pSnW/IxDM.VfuNLeGZGTYfwUEOxnQPdnKmIRfhoq6','www.975764578@qq.com',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,4 +77,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-14  1:20:12
+-- Dump completed on 2015-07-14 10:02:34
