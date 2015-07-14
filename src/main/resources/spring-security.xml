@@ -28,6 +28,7 @@
 	<!-- Select users and user_roles from database -->
 	<security:authentication-manager>
 		<security:authentication-provider>
+		   <security:password-encoder ref="encoder" />		
 			<security:jdbc-user-service data-source-ref="datasource"
 				users-by-username-query=
 					"select username,password,enabled from user where username=?"
@@ -35,6 +36,10 @@
 					"select username, role from user_role where username =?" />
 		</security:authentication-provider>
 	</security:authentication-manager>
+	<bean id="encoder"
+         class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+           <constructor-arg name="strength" value="9" />  
+     </bean>	
 	<!-- 
 	<bean id="jCaptchaFilter" class="com.website.web.system.JCaptchaFilter"/>   
 	<bean id="captchaService" class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
