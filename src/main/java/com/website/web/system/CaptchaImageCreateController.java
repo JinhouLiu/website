@@ -10,13 +10,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;  
-import com.google.code.kaptcha.Constants;  
-import com.google.code.kaptcha.Producer;  
   
 @Controller  
 
+
+
 public class CaptchaImageCreateController {  
       
+	
+	/*
     private Producer captchaProducer = null;  
   
     @Autowired  
@@ -66,5 +68,7 @@ public class CaptchaImageCreateController {
                 
         return "/index";                                                    
     }  
-   
-}  
+   */
+} 
+
+ 

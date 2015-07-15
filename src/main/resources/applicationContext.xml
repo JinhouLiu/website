@@ -49,7 +49,7 @@
 	<bean id="manager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="datasource"/>
 	</bean>	
-	
+	<!--  
 	<bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">  
         <property name="config">  
             <bean class="com.google.code.kaptcha.util.Config">  
@@ -69,7 +69,7 @@
             </bean>  
         </property>  
     </bean> 
-    						
+    -->						
 </beans>
 			
 			

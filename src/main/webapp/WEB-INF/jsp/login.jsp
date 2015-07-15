@@ -8,30 +8,16 @@
 <title>Login Page</title>
 <link rel="Stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/style/login.css" />
-<script type="text/javascript"  src="${pageContext.request.contextPath}/resources/plugin/jquery-1.11.3.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/plugin/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-function checkAccount(){
-	var flag = true;
-	var account = $("#account").val();	
-	jQuery.ajax( {
-        type : "post",
-        url : "http://localhost:8080/SpringExamples/user/checkAccount.action",
-        dataType : "json",
-        data: {"account":account},
-        success : function(data) {        	
-           if(data.count > 0){
-        	   
-        	   alert("this number  is  exist,please input again");  
-        	   flag = false;        	  
-           }
-           
-        },
-        error: function(){						
-			alert('Error while request..');
-		}
-      });
-	return flag;
-}
+//刷新验证码
+function refreshCaptcha() {  
+    $('#captchaImg').hide().attr(  
+            'src',  
+            '<c:url value="/j_captcha.jpg"/>' + '?' + Math  
+                    .floor(Math.random() * 100)).fadeIn();  
+}  
 </script>
 </head>
 <body onload='document.loginForm.username.focus();'>
@@ -56,15 +42,20 @@ function checkAccount(){
 				</tr>
 				<tr>
 					<td>captcha:</td>
-<td><input name="kaptcha" type="text" id="kaptcha" maxlength="4" class="chknumber_input" /></td>
-<td><img src="/website/captcha-image.action" width="55" height="20" id="kaptchaImage"  style="margin-bottom: -3px"/></td>
-				</tr>				
-				<tr>			
+					<td><input name="j_captcha" type="text" id="j_captcha" class="j_captcha" /></td>
+					<td><img id="captchaImg" src="<c:url value='/j_captcha.jpg'/>"
+						style="cursor: pointer;" /></td>
+						<td><span style="margin-left: 25px"><a  
+                                        href="javascript:refreshCaptcha()">看不清楚换一张</a>  
+                                    </span>
+                       </td> 
+				</tr>
+				<tr>
 					<td><input type="submit" name="Submit" value="登入"></td>
 				</tr>
 			</table>
 			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}"/>
+				value="${_csrf.token}" />
 		</form>
 	</div>
 </body>

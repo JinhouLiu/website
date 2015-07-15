@@ -22,9 +22,6 @@ public class HelloController {
 		model.addObject("message", "This is default page!");
 		model.setViewName("hello");
 		return model;
-
-	
-
 	}
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)

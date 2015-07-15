@@ -1,4 +1,4 @@
-package com.website.entity.system;
+package com.website.web.system;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -33,7 +33,7 @@ public class GmailLikeCaptchaEngine extends ListImageCaptchaEngine {
 	 */
 	@Override
 	protected void buildInitialFactories() {
-		// å›¾ç‰‡å’Œå­—ä½“å¤§å°è®¾ç½® 
+		// Í¼Æ¬ºÍ×ÖÌå´óĞ¡ÉèÖÃ 
         int minWordLength = 4; 
         int maxWordLength = 5; 
         int fontSize = 18; 

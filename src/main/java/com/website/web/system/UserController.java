@@ -57,8 +57,6 @@ public class UserController {
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public ModelAndView welcome(ModelAndView model) {
 
-		
-		
 		System.out.println("hello");
 		
 		model.addObject("title", "Welcome - Spring Security Hello World");

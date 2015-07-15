@@ -30,7 +30,7 @@ public class JCaptchaFilter extends OncePerRequestFilter {
 	private String securityCheckUrl = "/j_spring_security_check";
 	
 	/** 生成 captcha 的 url。默认值为：/j_captcha.jpg */
-	private String captchaUrl = "/j_captcha.action";
+	private String captchaUrl = "/j_captcha.jpg";
 	
 	/** 验证失败时默认指向的 url。*/
 	private String failureUrl = "/login.action";
@@ -52,7 +52,7 @@ public class JCaptchaFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest request,
 			HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-	
+		logger.debug("Do Filter for:" + request.getServletPath());
 		String servletPath = request.getServletPath();
 		if (StringUtils.startsWith(servletPath, captchaUrl)){
 			//生成 captcha 图片
@@ -119,14 +119,15 @@ public class JCaptchaFilter extends OncePerRequestFilter {
             }
         }
     }
-	
 	/**
      * 验证 captcha。
      */  
 	private boolean validateCaptchaChallenge(final HttpServletRequest request) {
         try { 
             String captchaID = request.getSession().getId();
+            System.out.println(captchaID);
             String challengeResponse = request.getParameter(captchaParamName);
+            System.out.println(challengeResponse);
 			return captchaService.validateResponseForID(captchaID,
 					challengeResponse);
         } catch (CaptchaServiceException e) {
@@ -184,4 +185,4 @@ public class JCaptchaFilter extends OncePerRequestFilter {
 		this.failureUrl = failureUrl;
 	}
 
-}
+} 

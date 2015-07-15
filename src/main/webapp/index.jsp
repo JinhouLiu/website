@@ -9,7 +9,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Spring Jquery Ajax Demo</title>
 <script type="text/javascript">
-
 function madeAjaxCall(){
 	$.ajax({
 		type: "post",
@@ -26,7 +25,6 @@ function madeAjaxCall(){
 		}
 	});
 }
-
 //检查账户名是否可用
 function checkAccount(){
 	var flag = true;
@@ -50,13 +48,7 @@ function checkAccount(){
       });
 	return flag;
 }
-
-$(function(){           
-    $('#kaptchaImage').click(function () {//生成验证码  
-     $(this).hide().attr('src', '/website/captcha-image.action?' + Math.floor(Math.random()*100) ).fadeIn(); })      
-          });
-
-
+          
 function checkSecurityCode(){
 	var flag = true;
 	var verifyCode=$("input[name=kaptcha]").val();
@@ -86,14 +78,7 @@ function checkSecurityCode(){
 				密码:
 				<td><input type="text" name="password"  id="password" ></td>
 			</tr>
-			<br/>
-				<tr>			 
-        <label>验证码：        
-       <input name="kaptcha" type="text" id="kaptcha" maxlength="4" class="chknumber_input" />               
-       </label>  
-        <img src="/website/captcha-image.action" width="55" height="20" id="kaptchaImage"  style="margin-bottom: -3px"/>			
-	   </tr>
-	     <br/>					
+			<br/>    			
 			<tr>
 				<td colspan="2" align="center">
 				        <input type="button" value="Ajax Submit" onclick="checkAccount();">
