@@ -34,9 +34,15 @@
 		   <security:password-encoder ref="encoder" />		
 			<security:jdbc-user-service data-source-ref="datasource"
 				users-by-username-query=
-					"select username,password,enabled from user where username=?"
+				<!-- enabled的默认值一定要为1，不能是0，不然就查询不出来 -->
+					"select account_name as username,password as password,delete_flag as enabled from t_user where t_user.account_name=?"
 				authorities-by-username-query=
-					"select username, role from user_role where username =?" />
+					"select account_name as username,role_name as role 
+					from t_user u
+					left join t_user_role ur on ( u.id=ur.user_id)
+					left join t_role r on (ur.role_id=r.id)
+					where u.account_name=?" 					    
+					 />
 		</security:authentication-provider>
 	</security:authentication-manager>
 	<bean id="encoder"

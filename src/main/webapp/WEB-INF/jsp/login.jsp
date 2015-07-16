@@ -51,7 +51,7 @@ function refreshCaptcha() {
                        </td> 
 				</tr>
 				<tr>
-					<td><input type="submit" name="Submit" value="登入"></td>
+					<td><input type="submit" name="submit" value="登入"></td>
 				</tr>
 			</table>
 			<input type="hidden" name="${_csrf.parameterName}"

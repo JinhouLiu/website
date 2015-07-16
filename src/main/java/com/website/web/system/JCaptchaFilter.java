@@ -125,9 +125,7 @@ public class JCaptchaFilter extends OncePerRequestFilter {
 	private boolean validateCaptchaChallenge(final HttpServletRequest request) {
         try { 
             String captchaID = request.getSession().getId();
-            System.out.println(captchaID);
-            String challengeResponse = request.getParameter(captchaParamName);
-            System.out.println(challengeResponse);
+            String challengeResponse = request.getParameter(captchaParamName);           
 			return captchaService.validateResponseForID(captchaID,
 					challengeResponse);
         } catch (CaptchaServiceException e) {
