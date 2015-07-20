@@ -3,34 +3,42 @@ package com.website.entity.system;
 import java.util.Date;
 
 public class Role {
-    private Integer id;
+    private Long id;
 
-    private String rname;
+    private String roleName;
 
     private String description;
 
-    private Integer creatorId;
+    private Integer deleteFlag;
 
-    private Integer isDelete;
-
-    private Date updateTime;
+    private Long createBy;
 
     private Date createTime;
 
-    public Integer getId() {
+    private Long updateBy;
+
+    private Date updateTime;
+
+    private String attribute1;
+
+    private String attribure2;
+
+    private String attribute3;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getRname() {
-        return rname;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setRname(String rname) {
-        this.rname = rname == null ? null : rname.trim();
+    public void setRoleName(String roleName) {
+        this.roleName = roleName == null ? null : roleName.trim();
     }
 
     public String getDescription() {
@@ -41,20 +49,36 @@ public class Role {
         this.description = description == null ? null : description.trim();
     }
 
-    public Integer getCreatorId() {
-        return creatorId;
+    public Integer getDeleteFlag() {
+        return deleteFlag;
     }
 
-    public void setCreatorId(Integer creatorId) {
-        this.creatorId = creatorId;
+    public void setDeleteFlag(Integer deleteFlag) {
+        this.deleteFlag = deleteFlag;
     }
 
-    public Integer getIsDelete() {
-        return isDelete;
+    public Long getCreateBy() {
+        return createBy;
     }
 
-    public void setIsDelete(Integer isDelete) {
-        this.isDelete = isDelete;
+    public void setCreateBy(Long createBy) {
+        this.createBy = createBy;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Long getUpdateBy() {
+        return updateBy;
+    }
+
+    public void setUpdateBy(Long updateBy) {
+        this.updateBy = updateBy;
     }
 
     public Date getUpdateTime() {
@@ -65,11 +89,27 @@ public class Role {
         this.updateTime = updateTime;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getAttribute1() {
+        return attribute1;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setAttribute1(String attribute1) {
+        this.attribute1 = attribute1 == null ? null : attribute1.trim();
+    }
+
+    public String getAttribure2() {
+        return attribure2;
+    }
+
+    public void setAttribure2(String attribure2) {
+        this.attribure2 = attribure2 == null ? null : attribure2.trim();
+    }
+
+    public String getAttribute3() {
+        return attribute3;
+    }
+
+    public void setAttribute3(String attribute3) {
+        this.attribute3 = attribute3 == null ? null : attribute3.trim();
     }
 }

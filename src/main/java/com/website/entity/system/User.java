@@ -3,42 +3,70 @@ package com.website.entity.system;
 import java.util.Date;
 
 public class User {
-    private Integer id;
+    private Long id;
 
-    private String account;
+    private String accountName;
+
+    private String usernameEmail;
 
     private String password;
 
-    private String realName;
+    private String nickName;
 
-    private Integer sex;
+    private Integer userStatus;
 
-    private Date birthday;
+    private Date registerTime;
 
-    private String mobile;
+    private Date lockedTime;
 
-    private String email;
+    private Integer loginStatus;
 
-    private Integer isDelete;
+    private Date lastLoginTime;
+    
+    private Date  logoutTime; 
 
-    private Date updateTime;
+	private String comment;
+
+    private Integer deleteFlag;
+
+    private Long createBy;
 
     private Date createTime;
 
-    public Integer getId() {
+    private Long updateBy;
+
+    private Date updateTime;
+
+    private String attribute1;
+
+    private String attribute2;
+
+    private String attribute3;
+
+    private Integer errornumber;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getAccount() {
-        return account;
+    public String getAccountName() {
+        return accountName;
     }
 
-    public void setAccount(String account) {
-        this.account = account == null ? null : account.trim();
+    public void setAccountName(String accountName) {
+        this.accountName = accountName == null ? null : accountName.trim();
+    }
+
+    public String getUsernameEmail() {
+        return usernameEmail;
+    }
+
+    public void setUsernameEmail(String usernameEmail) {
+        this.usernameEmail = usernameEmail == null ? null : usernameEmail.trim();
     }
 
     public String getPassword() {
@@ -49,52 +77,100 @@ public class User {
         this.password = password == null ? null : password.trim();
     }
 
-    public String getRealName() {
-        return realName;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setRealName(String realName) {
-        this.realName = realName == null ? null : realName.trim();
+    public void setNickName(String nickName) {
+        this.nickName = nickName == null ? null : nickName.trim();
     }
 
-    public Integer getSex() {
-        return sex;
+    public Integer getUserStatus() {
+        return userStatus;
     }
 
-    public void setSex(Integer sex) {
-        this.sex = sex;
+    public void setUserStatus(Integer userStatus) {
+        this.userStatus = userStatus;
     }
 
-    public Date getBirthday() {
-        return birthday;
+    public Date getRegisterTime() {
+        return registerTime;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public void setRegisterTime(Date registerTime) {
+        this.registerTime = registerTime;
     }
 
-    public String getMobile() {
-        return mobile;
+    public Date getLockedTime() {
+        return lockedTime;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile == null ? null : mobile.trim();
+    public void setLockedTime(Date lockedTime) {
+        this.lockedTime = lockedTime;
     }
 
-    public String getEmail() {
-        return email;
+    public Integer getLoginStatus() {
+        return loginStatus;
     }
 
-    public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
+    public void setLoginStatus(Integer loginStatus) {
+        this.loginStatus = loginStatus;
     }
 
-    public Integer getIsDelete() {
-        return isDelete;
+    public Date getLastLoginTime() {
+        return lastLoginTime;
     }
 
-    public void setIsDelete(Integer isDelete) {
-        this.isDelete = isDelete;
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
+    }
+    
+    public Date getLogoutTime() {
+		return logoutTime;
+	}
+
+	public void setLogoutTime(Date logoutTime) {
+		this.logoutTime = logoutTime;
+	}
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment == null ? null : comment.trim();
+    }
+
+    public Integer getDeleteFlag() {
+        return deleteFlag;
+    }
+
+    public void setDeleteFlag(Integer deleteFlag) {
+        this.deleteFlag = deleteFlag;
+    }
+
+    public Long getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(Long createBy) {
+        this.createBy = createBy;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Long getUpdateBy() {
+        return updateBy;
+    }
+
+    public void setUpdateBy(Long updateBy) {
+        this.updateBy = updateBy;
     }
 
     public Date getUpdateTime() {
@@ -105,11 +181,35 @@ public class User {
         this.updateTime = updateTime;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getAttribute1() {
+        return attribute1;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setAttribute1(String attribute1) {
+        this.attribute1 = attribute1 == null ? null : attribute1.trim();
+    }
+
+    public String getAttribute2() {
+        return attribute2;
+    }
+
+    public void setAttribute2(String attribute2) {
+        this.attribute2 = attribute2 == null ? null : attribute2.trim();
+    }
+
+    public String getAttribute3() {
+        return attribute3;
+    }
+
+    public void setAttribute3(String attribute3) {
+        this.attribute3 = attribute3 == null ? null : attribute3.trim();
+    }
+
+    public Integer getErrornumber() {
+        return errornumber;
+    }
+
+    public void setErrornumber(Integer errornumber) {
+        this.errornumber = errornumber;
     }
 }

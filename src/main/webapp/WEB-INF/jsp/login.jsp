@@ -17,7 +17,7 @@ function refreshCaptcha() {
             'src',  
             '<c:url value="/j_captcha.jpg"/>' + '?' + Math  
                     .floor(Math.random() * 100)).fadeIn();  
-}  
+} 
 </script>
 </head>
 <body onload='document.loginForm.username.focus();'>
@@ -34,7 +34,7 @@ function refreshCaptcha() {
 			<table>
 				<tr>
 					<td>username:</td>
-					<td><input type='text' name='username' id="username" /></td>
+					<td><input type='text' name='username' id="username"/></td>
 				</tr>
 				<tr>
 					<td>password:</td>

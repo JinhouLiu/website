@@ -14,7 +14,7 @@
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
     <!-- enable use-expressions -->
 	<security:http auto-config="true" use-expressions="true">
-		<security:intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />		
+		<security:intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />			
 		<!-- access denied page -->
 		<security:access-denied-handler error-page="/403.action" />
 		<security:form-login 
@@ -29,12 +29,12 @@
 		<security:csrf/>
 	</security:http>	
 	<!-- Select users and user_roles from database -->
+	<!-- enabled的默认值一定要为1，不能是0，不然就查询不出来 -->
 	<security:authentication-manager>
 		<security:authentication-provider>
 		   <security:password-encoder ref="encoder" />		
 			<security:jdbc-user-service data-source-ref="datasource"
-				users-by-username-query=
-				<!-- enabled的默认值一定要为1，不能是0，不然就查询不出来 -->
+				users-by-username-query=				
 					"select account_name as username,password as password,delete_flag as enabled from t_user where t_user.account_name=?"
 				authorities-by-username-query=
 					"select account_name as username,role_name as role 

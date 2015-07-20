@@ -8,7 +8,7 @@ public static  void   main(String[]  args)
 	
 	int i = 0;
 	while (i < 10) {
-		String password = "ljh8888";
+		String password = "liuziyang";
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String hashedPassword = passwordEncoder.encode(password);
  

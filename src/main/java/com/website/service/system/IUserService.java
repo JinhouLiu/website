@@ -1,29 +1,40 @@
 package com.website.service.system;
 
+import java.util.List;
+
 import com.website.entity.system.User;
+import com.website.utils.Page;
 
 public interface IUserService {
 
 	/**
-	 * ²éÑ¯ÓÃ»§ÊÇ·ñ´æÔÚ
+	 * æŸ¥è¯¢ç”¨æˆ·æ˜¯å¦å­˜åœ¨
 	 * 
-	 * @param account
-	 *            ÕË»§Ãû
-	 * @return ÊÇ·ñ´æÔÚ
+	 * @param accountName
+	 *            å·¥å·
+	 * @return æ˜¯å¦å­˜åœ¨
 	 */
 
-	public int getCountByAccount(Integer account);
+	public int getCountByAccount(String accountName);
+
+	/**
+	 * æŸ¥è¯¢ç”¨æˆ·åå’Œå¯†ç æ˜¯å¦æ­£ç¡®
+	 * 
+	 * @param staff
+	 *            å·¥å·å¯¹è±¡
+	 * @return æ˜¯å¦æ­£ç¡®
+	 */
+	public User getUserByAccountAndPwd(String accountName, String password);
 
 	/**
 	 * 
-	 * Í¨¹ıÓÃ»§ÃûºÍÃÜÂëµÇÈë
+	 * å±•ç¤ºæ‰€æœ‰ç”¨æˆ·
 	 * 
-	 * @param account
-	 *            ÕË»§Ãû
-	 * @param password
-	 *            ÃÜÂë
-	 * @return
 	 */
-	public User getUserByAccountAndPwd(Integer account, String password);
+	public List<User> listUser(Page  page);
+	
+	//æŸ¥è¯¢æœ‰å¤šå°‘è¡Œæ•° 
+		public int findRows();
+		
 
 }

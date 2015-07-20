@@ -5,28 +5,51 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.website.mapper.system.UserMapper">
 	<resultMap id="userResultMap" type="User">
 		<id column="id" property="id" />
-		<result column="account" property="account" />
+		<result column="account_name" property="accountName"/>
+		<result column="username_email" property="usernameEmail"/>
 		<result column="password" property="password" />
-		<result column="real_name" property="realName" />
-		<result column="sex" property="sex" />
-		<result column="mobile" property="mobile" />
-		<result column="email" property="email" />
-		<result column="is_delete" property="isDelete" />
-		<result column="update_time" property="updateTime" />
+		<result column="nick_name" property="nickName" />
+		<result column="user_status" property="userStatus" />		
+		<result column="register_time" property="registerTime" />		
+		<result column="locked_time" property="lockedTime" />
+		<result column="login_status" property="loginStatus" />
+		<result column="last_login_time" property="lastLoginTime"/>
+		<result column="logout_time" property="logoutTime"/>
+		<result column="comment" property="comment"/>	
+		<result column="delete_flag" property="deleteFlag" />
+		<result column="create_by" property="createBy" />
 		<result column="create_time" property="createTime" />
+		<result column="update_by" property="updateBy" />
+		<result column="update_time" property="updateTime" />
+		<result column="attribute1" property="attribute1" />
+		<result column="attribute2" property="attribute2" />
+		<result column="attribute3" property="attribute3" />
+		<result column="errornumber" property="errornumber" />		
 	</resultMap>
 	<sql id="userColumnList">account,password,real_name,sex,mobile,email,is_delete,update_time,create_time
 	</sql>
 	<!--查询用户名是否存在 -->
-	<select id="getCountByAccount" parameterType="Integer" resultType="int">
-		select count(-1) from USER where account=#{account}
-	</select>
+	<select id="getCountByAccount" parameterType="String" resultType="int">
+		select count(-1) from t_user where account=#{account}
+	</select>	
+	<select id="findRows"
+		     resultType="java.lang.Integer">
+		     select count(*) from t_user
+	</select>	
 	<!-- 查询用户名和密码是否匹配 -->
 	<select id="getUserByAccountAndPwd" parameterType="User"
 		resultType="User">
 		select
 		<include refid="userColumnList" />
-		from USER where account=#{account} and password=#{password}
+		from t_user where account=#{account} and password=#{password}
+	</select>
+	<!-- 分页查询  -->		
+	<select id="listUser" parameterType="com.website.utils.Page"   resultMap="userResultMap">	
+	 select a.* from (
+			select * from t_user 			
+			ORDER BY id
+			limit #{begin},#{end}
+			) a limit 5                     	
 	</select>
 </mapper>
 

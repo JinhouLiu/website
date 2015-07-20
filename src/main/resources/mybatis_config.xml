@@ -2,15 +2,16 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<configuration>	
+<configuration>
 	<typeAliases>
-	<typeAlias type="com.website.entity.system.User" alias="User"/>
-</typeAliases>
-<!-- 分页插件配置 -->
+		<typeAlias type="com.website.entity.system.User" alias="User" />
+	</typeAliases>
+	<!-- 分页插件配置 -->
 	<plugins>
-		<plugin interceptor="com.website.page.PagePlugin">
-			<property name="dialect" value="mysql"/>
-			<property name="pageSqlId" value=".*listPage.*"/>
+		<plugin
+			interceptor="com.github.miemiedev.mybatis.paginator.OffsetLimitInterceptor">
+			<property name="dialectClass"
+				value="com.github.miemiedev.mybatis.paginator.dialect.MySQLDialect" />
 		</plugin>
-	</plugins>		
+	</plugins>
 </configuration>
