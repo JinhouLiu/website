@@ -1,6 +1,7 @@
 package com.website.mapper.system;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.website.entity.system.User;
@@ -33,4 +34,6 @@ public interface UserMapper extends BaseMapper {
 	int  findRows();
 
 	
+
+	int delete(@Param(value = "id") Integer id);
 }

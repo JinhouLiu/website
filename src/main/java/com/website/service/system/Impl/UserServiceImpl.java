@@ -40,4 +40,10 @@ public class UserServiceImpl implements IUserService {
 		return userMapper.findRows();
 	}
 
+	@Override
+	public int delete(Integer id) {
+		// TODO Auto-generated method stub
+		return userMapper.delete(id);
+	}
+
 }

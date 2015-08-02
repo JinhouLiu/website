@@ -17,7 +17,6 @@
 <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/resources/plugin/jqgrid/css/ui.jqgrid-bootstarp.css"/>
 <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/resources/plugin/jqgrid/plugins/searchFilter.css"/>
 <title>Insert title here</title>
-
 <script language="javascript" type="text/javascript">
 function to_page(curr_page) {
 	//将传入的页码赋值给表单中的页码文本框
@@ -25,6 +24,8 @@ function to_page(curr_page) {
 	//提交表单，实现带条件的分页查询
     document.forms[0].submit();
     }
+</script>
+
 </script>
 </head>
 <body>
@@ -35,8 +36,9 @@ function to_page(curr_page) {
 	<form action=" " method="">
 	<input type="hidden" name="currentPage" id="current_page" value="${Page.currentPage }" />
 	<c:if test="${!(empty requestScope.users)}">
-		<table border="1" cellpadding="10" cellspacing="0">
+		<table border="1" cellpadding="10" cellspacing="0">				
 			<tr>
+			    <th>是否选中</th>			   
 				<th>Num</th>
 				<th>ID</th>
 				<th>账户名</th>				
@@ -54,6 +56,7 @@ function to_page(curr_page) {
 			</tr>
 			<c:forEach items="${requestScope.users }" var="user" varStatus="s">
 				<tr>
+				    <td><input type="radio" name="checked"  /></td>
 					<td>${s.count}</td>
 					<td>${user.id}</td>
 					<td>${user.accountName}</td>
@@ -71,7 +74,7 @@ function to_page(curr_page) {
 						href="${pageContext.request.contextPath}/user/save.action?id=${user.id}"><font
 							color="blue">edit</font></a></td>
 					<td><a 
-						href="${pageContext.request.contextPath}/user/delete/${user.id}.action"><font
+						href="${pageContext.request.contextPath}/deleteUser/${user.id}.action"><font
 							color="blue">delete</font></a></td>
 				</tr>
 			</c:forEach>

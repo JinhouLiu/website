@@ -1,12 +1,15 @@
 package com.website.web.system;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,7 +23,8 @@ import com.website.utils.Page;
 @Controller
 public class UserController {
 	@Resource(name = "IUserService")
-	private IUserService iUserService;	
+	private IUserService iUserService;
+
 	/**
 	 * 检查账户是否存在
 	 * 
@@ -35,22 +39,22 @@ public class UserController {
 		count = iUserService.getCountByAccount(username);
 		modelMap.put("count", count);
 		return modelMap;
-	}	
-	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
-	public ModelAndView welcome(ModelAndView model) {
-		
-		model.addObject("title", "Welcome - Spring Security Hello World");
-		model.addObject("message", "This is welcome page!");
-		model.setViewName("hello");
-		return model;
 	}
 	
 	@RequestMapping(value = "/listUser", method = RequestMethod.GET)
-	public ModelAndView listUser(Model model,Page page) {
-		
-		List<User> users=iUserService.listUser(page);
+	public ModelAndView listUser(Model model, Page page) {
+
+		List<User> users = iUserService.listUser(page);
 		page.setRows(iUserService.findRows());
-		model.addAttribute("Page",page);				
-		return new  ModelAndView("tuser","users",users);
-	}			
+		model.addAttribute("Page", page);
+		return new ModelAndView("tuser", "users", users);
+	}
+		
+	//删除用户id
+	@RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.GET)
+	public String  deleteUser(@PathVariable Integer id, HttpServletRequest request,Model model) {
+		iUserService.delete(id);
+		return "forward:/listUser.action";
+
+	}	
 }

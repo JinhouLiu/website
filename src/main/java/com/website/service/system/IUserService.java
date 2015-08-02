@@ -37,4 +37,7 @@ public interface IUserService {
 		public int findRows();
 		
 
+		
+     public   int  delete(Integer  id);		
+		
 }
