@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,19 +43,22 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/listUser", method = RequestMethod.GET)
-	public ModelAndView listUser(Model model, Page page) {
+	public ModelAndView listUser(Model model, Page page,HttpServletRequest request) {
 
 		List<User> users = iUserService.listUser(page);
 		page.setRows(iUserService.findRows());
 		model.addAttribute("Page", page);
+		HttpSession session=request.getSession();
+		session.setAttribute("currentPage",page.getCurrentPage());
 		return new ModelAndView("tuser", "users", users);
 	}
-		
+
+	
 	//删除用户id
 	@RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.GET)
 	public String  deleteUser(@PathVariable Integer id, HttpServletRequest request,Model model) {
-		iUserService.delete(id);
-		return "forward:/listUser.action";
-
+		iUserService.delete(id);		
+		HttpSession session=request.getSession();
+		return "redirect:/listUser.action?currentPage="+session.getAttribute("currentPage");
 	}	
 }
