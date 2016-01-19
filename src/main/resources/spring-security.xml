@@ -23,8 +23,7 @@
 			authentication-failure-url="/welcome.action" 
 			username-parameter="username"
 			password-parameter="password" />
-		<security:logout logout-success-url="/login.action"  />
-		<security:custom-filter ref="jCaptchaFilter" before="FORM_LOGIN_FILTER"/>		
+		<security:logout logout-success-url="/login.action"  />			
 		<!-- enable csrf protection -->
 		<security:csrf/>
 	</security:http>	
@@ -49,10 +48,4 @@
          class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
            <constructor-arg name="strength" value="9" />  
      </bean> 		  
-	<bean id="jCaptchaFilter" class="com.website.web.system.JCaptchaFilter"/>   
-	<bean id="captchaService" class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
-		<property name="captchaEngine">
-			<bean class="com.website.web.system.GmailLikeCaptchaEngine"/>
-		</property>
-	</bean>
 </beans>
