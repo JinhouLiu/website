@@ -42,6 +42,7 @@ public class UserController {
 		return modelMap;
 	}
 	
+
 	@RequestMapping(value = "/listUser", method = RequestMethod.GET)
 	public ModelAndView listUser(Model model, Page page,HttpServletRequest request) {
 

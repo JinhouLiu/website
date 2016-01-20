@@ -36,4 +36,9 @@ public interface UserMapper extends BaseMapper {
 	
 
 	int delete(@Param(value = "id") Integer id);
+	
+	
+	
+	
+	
 }
